@@ -12,6 +12,7 @@
 
 // *************************************************
 
+/*
 const getMovies = (movieName, cb) => {
     fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
         .then(res => res.json())
@@ -28,7 +29,30 @@ getMovies('frozen', ()=>{
         getMovies('avatar', ()=>{console.log("아바타");});
     });
 });
+*/
 
+const getMovies = (movieName, cb) => {
+    return new Promise(resolve => {
+        fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                resolve();
+            })
+        });
+    }
+
+    getMovies('frozen')
+        .then(() => console.log("겨울 왕국"))
+        .then(() => console.log("어벤져스"))
+        .then(() => console.log("아바타"));
+
+// getMovies('frozen', ()=>{
+//     console.log("겨울 왕국");
+//     getMovies('avengers', ()=>{
+//         console.log("어벤져스");
+//         getMovies('avatar', ()=>{console.log("아바타");});
+//     });
 
 
 
