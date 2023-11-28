@@ -12,13 +12,23 @@
 
 // *************************************************
 
-fetch('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
-    .then(res => res.json())
-    .then(res => {
-        console.log(res);
-        console.log(1);
-        console.log(2);
-        console.log(3);
-    })
+const getMovies = (movieName, cb) => {
+    fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            cb();
+        })
+    }
+
+getMovies('frozen', ()=>{
+    console.log("겨울 왕국");
+    getMovies('avengers', ()=>{
+        console.log("어벤져스");
+        getMovies('avatar', ()=>{console.log("아바타");});
+    });
+});
+
+
 
 
