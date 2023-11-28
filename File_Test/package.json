@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "fs" : "cross-env FILE_PATH=./hello.txt node fs_promise.js"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

@@ -3,8 +3,8 @@ const content = "Hello World!!!";
 
 async function helloWorld (){
     try{
-        await fs.writeFile("./hello.txt", content);
-        const data = await fs.readFile("./Hello.txt", "utf-8");
+        await fs.writeFile(process.env.FILE_PATH, content);
+        const data = await fs.readFile(process.env.FILE_PATH, "utf-8");
         console.log(data);
     }
     catch(err){
