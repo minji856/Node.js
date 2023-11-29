@@ -31,7 +31,7 @@ getMovies('frozen', ()=>{
 });
 */
 
-const getMovies = (movieName, cb) => {
+const getMovies = (movieName) => {
     return new Promise(resolve => {
         fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
             .then(res => res.json())
@@ -42,17 +42,27 @@ const getMovies = (movieName, cb) => {
         });
     }
 
-    getMovies('frozen')
-        .then(() => console.log("겨울 왕국"))
-        .then(() => console.log("어벤져스"))
-        .then(() => console.log("아바타"));
+/*
+getMovies('frozen').then(() => 
+    {console.log("겨울 왕국")
+    return getMovies('avengers');
+}).then(() => {
+    console.log("어벤져스")
+    return getMovies('avatar');
+}).then(() => 
+    {console.log("아바타")});
+*/
 
-// getMovies('frozen', ()=>{
-//     console.log("겨울 왕국");
-//     getMovies('avengers', ()=>{
-//         console.log("어벤져스");
-//         getMovies('avatar', ()=>{console.log("아바타");});
-//     });
+// async, await 쓴 버전
+const wrap = async() => {
+    await getMovies('frozen')
+    console.log("겨울 왕국")
+    
+    await getMovies('avengers')
+    console.log("어벤져스")
 
+    await getMovies('avatar')
+    console.log("아바타")
+}
 
-
+wrap();

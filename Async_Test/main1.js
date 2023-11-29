@@ -39,6 +39,7 @@ a(()=>{
 
 // ************** Promise *************** /
 
+/*
 const a = () => {
     return new Promise((resolve)=>{
         setTimeout(()=>{
@@ -97,9 +98,33 @@ a()
 */
 
 // 콜백함수니까 함수 이름만
+/*
 a()
     .then(b)
     .then(c)
     .then(d)
     .then(()=>console.log("done"));
+*/
 
+
+
+// ************** Async, Await 패턴 *************** /
+
+const a = () => {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            console.log(1);
+            resolve();
+        }, 1000);      
+    });
+};
+
+const b = () => console.log(2);
+
+// a().then(()=>b()); 이 코드를 아래로 바꿀 수 있다
+
+const fun = async() => {
+    await a()
+    b()
+}
+fun()
