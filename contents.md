@@ -103,3 +103,9 @@
         2) static
         3) template engine
             - npm install hbs
+
+8. DataBase
+    
+    (1) Oracle    
+    - npm i oracledb
+    - 오라클 클라이언트 라이브러리
