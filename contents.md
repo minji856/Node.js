@@ -94,3 +94,12 @@
 
 7. Express
     npm install express
+
+    - nodemon 설치
+        npm install -D nodemon 또는 npm install --save-dev nodemon
+    
+    (1) MiddleWare    
+        1) routor
+        2) static
+        3) template engine
+            - npm install hbs
